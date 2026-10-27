@@ -1,0 +1,27 @@
+# Local credentials and environment files
+.env
+.env.*
+!.env.example
+
+# Java / Maven
+**/target/
+*.class
+hs_err_pid*
+
+# Node / Vite
+**/node_modules/
+**/dist/
+**/.vite/
+npm-debug.log*
+
+# IDEs and operating systems
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+logs/

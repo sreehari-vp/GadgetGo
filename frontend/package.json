@@ -1,0 +1,28 @@
+{
+  "name": "gadgetgo-frontend",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest run --testTimeout=15000",
+    "test:watch": "vitest",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "react-router": "^7.18.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.1.14",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.8",
+    "@vitejs/plugin-react": "5.0.4",
+    "jsdom": "^29.1.1",
+    "tailwindcss": "4.1.14",
+    "vite": "7.3.7",
+    "vitest": "^5.0.5"
+  }
+}

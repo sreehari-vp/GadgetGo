@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --gg-ink: #17243a;
+  --gg-ink-hover: #223653;
+  --gg-accent: #b7d84b;
+  --gg-accent-hover: #a5c63e;
+  --gg-teal: #2d7c78;
+  --gg-page: #f6f7f3;
+  --gg-surface: #ffffff;
+  --gg-surface-soft: #eef1ec;
+  --gg-text-secondary: #536174;
+  --gg-text-muted: #687486;
+  --gg-border: #dce2e3;
+  --gg-success: #217653;
+  --gg-warning: #8a5700;
+  --gg-error: #b33b42;
+  --gg-content-width: 82rem;
+  --gg-section-space: clamp(4rem, 7vw, 6.5rem);
+}
+
+@theme inline {
+  --color-ink: var(--gg-ink);
+  --color-ink-hover: var(--gg-ink-hover);
+  --color-accent: var(--gg-accent);
+  --color-accent-hover: var(--gg-accent-hover);
+  --color-teal: var(--gg-teal);
+  --color-page: var(--gg-page);
+  --color-surface: var(--gg-surface);
+  --color-surface-soft: var(--gg-surface-soft);
+  --color-secondary: var(--gg-text-secondary);
+  --color-muted: var(--gg-text-muted);
+  --color-border: var(--gg-border);
+  --color-success: var(--gg-success);
+  --color-warning: var(--gg-warning);
+  --color-error: var(--gg-error);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --shadow-soft: 0 18px 60px rgb(23 36 58 / 9%);
+  --shadow-card: 0 8px 30px rgb(23 36 58 / 6%);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--gg-page);
+  color: var(--gg-ink);
+}
+
+button,
+input { font: inherit; }
+
+button,
+a { -webkit-tap-highlight-color: transparent; }
+
+:focus-visible {
+  outline: 3px solid var(--gg-teal);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--gg-accent);
+  color: var(--gg-ink);
+}
+
+.page-container {
+  width: min(calc(100% - 2.5rem), var(--gg-content-width));
+  margin-inline: auto;
+}
+
+.section-space { padding-block: var(--gg-section-space); }
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 0.75rem;
+  left: 0.75rem;
+  transform: translateY(-160%);
+  border-radius: 0.75rem;
+  background: var(--gg-ink);
+  padding: 0.8rem 1rem;
+  color: white;
+  font-weight: 700;
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus { transform: translateY(0); }
+
+.mobile-menu-panel { animation: menu-in 160ms ease-out both; }
+
+.preview-card { transition: box-shadow 180ms ease; }
+
+.notice-dialog {
+  width: min(calc(100% - 2rem), 30rem);
+  border: 1px solid var(--gg-border);
+  border-radius: 1.5rem;
+  padding: 0;
+  color: var(--gg-ink);
+  box-shadow: 0 28px 90px rgb(12 24 42 / 24%);
+}
+
+.notice-dialog::backdrop {
+  background: rgb(15 28 47 / 55%);
+  backdrop-filter: blur(3px);
+}
+
+.notice-dialog[open] { animation: dialog-in 180ms ease-out both; }
+
+@keyframes menu-in {
+  from { opacity: 0; transform: translateY(-0.35rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dialog-in {
+  from { opacity: 0; transform: translateY(0.5rem) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 639px) {
+  .page-container { width: min(calc(100% - 2rem), var(--gg-content-width)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
